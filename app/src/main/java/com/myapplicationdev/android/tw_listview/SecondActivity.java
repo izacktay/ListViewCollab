@@ -32,7 +32,19 @@ public class SecondActivity extends AppCompatActivity {
         tvYear.setText(year);
 
         modules = new ArrayList<Module>();
-        modules.add(new Module("C208", true));
+        if(year.equals("Year 1")) {
+            modules.add(new Module("C105", true));
+            modules.add(new Module("C100", false));
+            modules.add(new Module("C104", true));
+        } else if(year.equals("Year 2")) {
+            modules.add(new Module("C208", true));
+            modules.add(new Module("C208", false));
+            modules.add(new Module("C346", true));
+        } else {
+            modules.add(new Module("C349", true));
+            modules.add(new Module("C000", false));
+            modules.add(new Module("C347", true));
+        }
 
         aa = new ModuleAdapter(this, R.layout.row, modules);
         lv.setAdapter(aa);
